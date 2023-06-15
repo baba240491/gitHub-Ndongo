@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h:dataTable value="#{employe.Afficher()}" var="ob">
+                    <h:column>
+                        <f:facet name="header">Matricule</f:facet>
+                        <h:outputText value="#{ob.matricule}"  />
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">Nom</f:facet>
+                        <h:outputText value="#{ob.nom}" />
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">Salaire</f:facet>
+                        <h:outputText value="#{ob.salaire}" />
+                    </h:column>
+                    
+                     <h:column>
+                        <f:facet name="header">Salaire</f:facet>
+                        <h:commandButton value="Supprimer" action="#{employe.delete(ob.matricule)}"/>
+                        <h:commandButton value="Modifier" action="#{employe.Rechercher(ob.matricule)}" />
+                    </h:column>
+                    
+                    
+                    </h:dataTable>
+                
+                 <h:commandButton value="Ajouter New"  action="create"/>
+                
+                
+            </h:form>
+             
+            
+            
+            
+        </f:view>
+        
+        
+    </h:body>
+</html>
+

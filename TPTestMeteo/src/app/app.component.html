@@ -1,0 +1,92 @@
+
+<div class="input-group">
+  <div class="form-outline">
+    <input id="search-input" type="search" id="form1" class="form-control" placeholder="chercher ville" name="ville" [(ngModel)]="ville"   />
+    <button type="button" class="btn btn-primary" (click)="getweatherData()">Primary</button>
+  </div>
+</div>
+
+
+<div class=" conteneur" *ngIf="weatherData">
+<div class = cont1>
+  <img src="../assets/meteo2.png" *ngIf="temperature-273.15 > 15">
+
+  <img src="../assets/meteo3.png" *ngIf="temperature-273.15 <= 15">
+
+  <div class="cont2">
+    <div class="localisation">{{ville}} , {{pays}}</div>
+    <div class="temperature ">{{temperature - 273.15  | number: '1.0-0'}}°C</div>
+    </div>
+
+</div>
+
+
+<div class="cont3">
+  <div class="label1">
+    Pour Plus Information
+  </div>
+
+<div class="conteneurbas">
+  <div class="contbas1">
+    <div class="infobas">
+      <img src="../assets/tep5.png" alt="">
+      <span>min</span>
+    </div>
+<div class="blocvalue">
+  {{tempMin - 273.15 | number:'1.0-0'}}°C
+</div>
+  </div>
+
+
+
+  <div class="contbas1">
+    <div class="infobas">
+      <img src="../assets/tempmax.png" alt="">
+      <span>max</span>
+    </div>
+<div class="blocvalue">
+  {{tempMax - 273.15 | number:'1.0-0'}}°C
+</div>
+  </div>
+
+
+  <div class="contbas1">
+    <div class="infobas">
+      <img src="../assets/himd1.png" alt="">
+      <span>Préssion</span>
+    </div>
+<div class="blocvalue">
+  {{pression}}Pa
+</div>
+  </div>
+
+
+  <div class="contbas1">
+    <div class="infobas">
+      <img src="../assets/vent.png" alt="">
+      <span>Vent</span>
+    </div>
+<div class="blocvalue">
+     {{vent * 3.6 | number  : '1.0-0'}} km/h
+</div>
+  </div>
+
+  <div class="blocvalue">
+    <div class="d-flex flex-row align-items-center">
+      <p class="mb-0 me-4">Nuage {{code}}</p>
+
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+</div>
+
+<router-outlet></router-outlet>
+
+
+
+
+
