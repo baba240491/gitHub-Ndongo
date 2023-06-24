@@ -13,9 +13,8 @@ import javax.swing.JOptionPane;
  * @author LENOVO
  */
 public class ModificationOption {
-     Envoyer en = new Envoyer();
-        RetraitClient rt = new RetraitClient();
-    
+              Menu M = new Menu();
+        
     public void OptionRetrait(){
         
          try           
@@ -23,15 +22,14 @@ public class ModificationOption {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection co;
                 co=DriverManager.getConnection("jdbc:mysql://localhost:3306/multiservice","root","");
-              
-                //espace memoire piur execution de la requete
-               Statement s1 = co.createStatement();
-               String req=" update envoyer set option='Retirer' where codeTransaction="+ rt.getjLabel6().getText()+ "       ";
-                //execution de la requet  
-               ResultSet res=s1.executeQuery(req);
-	    if(res.next()){
                 
-            }		   
+                //espace memoire pour execution de la requete
+               Statement s1 = co.createStatement();
+               String req=" update envoyer set option='Retirer' where codeTransaction="+M.NonRetrait+ "       ";
+                //execution de la requet  
+               
+               ResultSet res=s1.executeQuery(req);
+               
 		
             }
             catch(SQLException e2)
